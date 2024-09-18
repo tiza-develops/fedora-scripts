@@ -13,17 +13,22 @@ dnf rm loupe snapshot gnome-abrt gnome-maps gnome-terminal gnome-boxes evince to
 
 ## Remove and tidy repositories
 ### Remove non vital repositories and copr repos
+```fish
+    dnf copr remove phracek/PyCharm
+```
 ### Remove fedora flatpak remote
-flatpak remote-delete --force <remote-name>
-
+```fish
+flatpak remote-delete fedora
+```
 ## Install rmpfussion
 ```fish
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 The main reason I do this is to get proprietary codecs for ffmpeg and mpv!
-
+```fish
+dnf swap ffmpeg-free ffmpeg --allowerasing
+```
 ## Now that we removed a lot of applications, let's install better ones!
-### For GNOME
 ```fish
 dnf install mpv btop gnome-tweaks
 # Install, in that order: Extension Manager, Solanum, Errands, Komikku, Papers and Foliate
@@ -31,5 +36,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager io.bassi.Amberol org.gn
 ```
 
 ## Install fonts, themes and icons!
+```fish
 dnf install papirus-icon-theme
 bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)"
+```
