@@ -5,7 +5,7 @@ dnf install fish tmux kitty
 chsh -s $(user) fish
 ```
 Also check out my [fish dots](https://github.com/tiza-develops/fish-dots)
-## Remove ~~bloat~~~ unnecesary applications
+## Remove ~bloat~ unnecesary applications
 ### GNOME Spin
 ```fish
 dnf rm loupe snapshot gnome-abrt gnome-maps gnome-terminal gnome-boxes evince totem baobab rhythmbox gnome-contacts gnome-weather gnome-maps mediawriter libreoffice-core simple-scan gnome-system-monitor gnome-disk-utility yelp gnome software gnome-text-editor gnome-tour gnome-calendar
