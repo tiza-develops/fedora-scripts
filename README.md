@@ -40,3 +40,10 @@ flatpak install flathub com.mattjakeman.ExtensionManager io.bassi.Amberol org.gn
 dnf install papirus-icon-theme
 bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)"
 ```
+
+## Get Javascript runtimes
+```fish
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    corepack enable
+    corepack enable pnpm
+```
