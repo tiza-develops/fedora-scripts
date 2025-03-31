@@ -1,20 +1,13 @@
 # The changes I make to my usual Fedora Fresh Installs
-## Install the fish shell
-```fish
-dnf install fish tmux kitty
-chsh -s $(user) fish
-```
-Also check out my [fish dots](https://github.com/tiza-develops/fish-dots)
-## Remove ~bloat~ unnecesary applications
-### GNOME Spin
-```fish
-dnf rm loupe snapshot gnome-abrt gnome-maps gnome-terminal gnome-boxes evince totem baobab rhythmbox gnome-contacts gnome-weather gnome-maps mediawriter libreoffice-core simple-scan gnome-system-monitor gnome-disk-utility yelp gnome software gnome-text-editor gnome-tour gnome-calendar
-```
+First of all, check out my [fish dots](https://github.com/tiza-develops/fish-dots)
 
 ## Remove and tidy repositories
 ### Remove non vital repositories and copr repos
 ```fish
     dnf copr remove phracek/PyCharm
+```
+```fish
+    sudo rm -rf /etc/yum.repos.d/google-chrome.repo
 ```
 ### Remove fedora flatpak remote
 ```fish
@@ -29,21 +22,19 @@ The main reason I do this is to get proprietary codecs for ffmpeg and mpv!
 dnf swap ffmpeg-free ffmpeg --allowerasing
 ```
 ## Now that we removed a lot of applications, let's install better ones!
+Install via packages mpv, gnome and a ebook reader
 ```fish
-dnf install mpv btop gnome-tweaks
-# Install, in that order: Extension Manager, Solanum, Errands, Komikku, Papers and Foliate
-flatpak install flathub com.mattjakeman.ExtensionManager io.bassi.Amberol org.gnome.Solanum io.github.mrvladus.List info.febvre.Komikku org.gnome.Papers com.github.johnfactotum.Foliate
+dnf install mpv btop gnome-tweaks foliate
+```
+Install via flatpak Extension Manager, Amberol, Solanum, Errands, Komikku and Blanket
+```fish
+flatpak install flathub com.mattjakeman.ExtensionManager io.bassi.Amberol org.gnome.Solanum io.github.mrvladus.List info.febvre.Komikku com.rafaelmardojai.Blanket
 ```
 
-## Install fonts, themes and icons!
+## Install zen-browser or ungoogled chromium
 ```fish
-dnf install papirus-icon-theme
-bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)"
+dnf copr enable wojnilowicz/ungoogled-chromium
 ```
-
-## Get Javascript runtimes
 ```fish
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-    corepack enable
-    corepack enable pnpm
+sudo dnf copr enable sneexy/zen-browser
 ```
